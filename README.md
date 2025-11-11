@@ -63,11 +63,9 @@ The model uses **real Saudi property transaction data**, including:
 * Do **not commit sensitive files** such as `config.json` (Azure credentials) in public repositories
 * Gradio public URLs are temporary and expire when the session ends
 
+
 ---
 
-## ⚡ Next Steps
 
-* Enhance the model with additional features like market trends and property age
-* Expand dataset coverage for more cities and property types
-
+`Data → Preprocessing → Model → Azure ML → Gradio`  
 
