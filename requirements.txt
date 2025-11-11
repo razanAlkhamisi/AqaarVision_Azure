@@ -1,0 +1,19 @@
+# Core packages
+pandas==2.0.3
+numpy==1.25.0
+scikit-learn==1.3.2
+joblib==1.3.2
+
+# Azure ML SDK
+azureml-core==1.52.0
+azureml-dataprep[pandas]==5.27.0
+azureml-mlflow==1.52.0
+
+# Web/API
+requests==2.31.0
+
+# Gradio UI (if you use it in CI/CD tests)
+gradio==4.12.1
+
+# Optional (helpful for CI/CD logging or debugging)
+json5==0.9.14
