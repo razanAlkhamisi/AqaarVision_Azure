@@ -71,4 +71,10 @@ with gr.Blocks() as demo:
     )
 
 # ------------------ LAUNCH ------------------
-demo.launch(share=True)
+
+iface = gr.Interface(fn=my_function, inputs="text", outputs="text")
+
+# Azure App Service provides the port via the environment variable
+port = int(os.environ.get("PORT", 7860))
+
+iface.launch(server_name="0.0.0.0", server_port=port)
