@@ -2,14 +2,13 @@
 import json
 import requests
 import gradio as gr
-import os
-
+import os  # Added to read environment variables
 
 # ------------------ CONFIG ------------------
-AZURE_ENDPOINT = os.getenv("AZURE_ENDPOINT")
+# Read endpoint from environment variable, fallback to current hardcoded one
+AZURE_ENDPOINT = os.getenv("AZURE_MODEL_ENDPOINT")
 
-UNIQUE_VALUES_PATH = "unique_values.json"    # JSON file with unique values for dropdowns
-
+UNIQUE_VALUES_PATH = "unique_values.json"  # JSON file with unique values for dropdowns
 
 # ------------------ LOAD DROPDOWNS ------------------
 with open(UNIQUE_VALUES_PATH, "r", encoding="utf-8") as f:
@@ -48,7 +47,6 @@ def predict_price(region, city, district, property_type, area, num_properties):
     except Exception as e:
         return f"Error: {e}\nResponse content: {response.text}"
 
-
 # ------------------ GRADIO INTERFACE ------------------
 with gr.Blocks() as demo:
     gr.Markdown("## 🏡 Real Estate Price Prediction")
@@ -72,6 +70,5 @@ with gr.Blocks() as demo:
         outputs=output_text
     )
 
-
 # ------------------ LAUNCH ------------------
-demo.launch()
+demo.launch(share=True)
