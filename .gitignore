@@ -1,0 +1,100 @@
+# =========================
+# 📁 General Python ignores
+# =========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.dll
+
+# Virtual environments
+venv/
+env/
+.venv/
+.env/
+
+# Jupyter notebooks checkpoints
+.ipynb_checkpoints/
+
+# Python cache and logs
+*.log
+*.tmp
+*.bak
+
+# =========================
+# 🧠 Machine Learning Artifacts
+# =========================
+*.pkl
+*.joblib
+*.h5
+*.model
+*.bin
+*.pt
+*.onnx
+
+# =========================
+# 📊 Data Files
+# =========================
+*.csv
+*.xlsx
+*.xls
+*.parquet
+*.json
+*.sav
+*.dat
+*.zip
+*.gz
+*.tar
+*.rar
+*.7z
+
+# Exclude specific safe data examples if needed
+!sample_data.csv
+!unique_values.json
+
+# =========================
+# ☁️ Azure ML & Deployment
+# =========================
+aml_config/
+config.json
+*.azureml/
+*.azureml_cache/
+*.runconfig
+*.yml.lock
+
+# Temporary model folders or outputs
+model/
+model_folder/
+outputs/
+logs/
+temp/
+tempdata/
+__temp__/
+
+# =========================
+# 🌐 Gradio / Local URLs
+# =========================
+*.gradio
+gradio/
+share_link.txt
+
+# =========================
+# 🔑 Credentials & Secrets
+# =========================
+*.env
+.env.*
+secrets.json
+token.txt
+api_key.txt
+azure_credential.json
+
+# =========================
+# 🧩 IDE & OS Files
+# =========================
+.vscode/
+.idea/
+*.iml
+.DS_Store
+Thumbs.db
+desktop.ini
