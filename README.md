@@ -56,6 +56,18 @@ The model uses **real Saudi property transaction data**, including:
 * **Content:** Detailed property information including location, type, area, units, and price
 * **Benefit:** Provides a realistic representation of the **Saudi real estate market** to enable accurate predictions
 
+
+
+## 📅 Dataset Details
+
+The dataset used in this project consists of real estate sales transactions from different quarters of the same year:
+
+Q2 dataset → used for training the machine learning model
+
+Q3 dataset → used for final evaluation and testing
+
+This separation ensures fair performance assessment and prevents data leakage, providing a realistic evaluation of how the model performs on unseen data. 
+
 ---
 
 ## 🔒 Security & Best Practices
