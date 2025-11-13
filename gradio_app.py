@@ -1,14 +1,13 @@
-
 import json
 import requests
 import gradio as gr
-import os  # Added to read environment variables
+import os  # For environment variables
+import threading  # To run Gradio in a separate thread if needed
 
 # ------------------ CONFIG ------------------
-# Read endpoint from environment variable, fallback to current hardcoded one
 AZURE_ENDPOINT = os.getenv("AZURE_MODEL_ENDPOINT")
 
-UNIQUE_VALUES_PATH = "unique_values.json"  # JSON file with unique values for dropdowns
+UNIQUE_VALUES_PATH = "unique_values.json"
 
 # ------------------ LOAD DROPDOWNS ------------------
 with open(UNIQUE_VALUES_PATH, "r", encoding="utf-8") as f:
@@ -35,12 +34,8 @@ def predict_price(region, city, district, property_type, area, num_properties):
     response = requests.post(AZURE_ENDPOINT, json=payload)
     
     try:
-        # First parse: get stringified list
         intermediate = json.loads(response.text)
-
-        # Second parse: convert string to actual Python list
         result_list = json.loads(intermediate)
-
         price = float(result_list[0])
         return f"Predicted Price: {price:,.0f} SAR"
     
@@ -71,10 +66,8 @@ with gr.Blocks() as demo:
     )
 
 # ------------------ LAUNCH ------------------
-
-iface = gr.Interface(fn=my_function, inputs="text", outputs="text")
-
-# Azure App Service provides the port via the environment variable
+# Get port from environment (Azure sets this automatically)
 port = int(os.environ.get("PORT", 7860))
 
-iface.launch(server_name="0.0.0.0", server_port=port)
+# Launch Gradio Blocks on Azure-compatible host/port
+demo.launch(server_name="0.0.0.0", server_port=port)
