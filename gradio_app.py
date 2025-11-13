@@ -70,4 +70,7 @@ with gr.Blocks() as demo:
 port = int(os.environ.get("PORT", 7860))
 
 # Launch Gradio Blocks on Azure-compatible host/port
-demo.launch(server_name="0.0.0.0", server_port=port)
+demo.launch(server_name="0.0.0.0", 
+            server_port=port, 
+            share=False,    # we don't need Gradio's public share link
+            inbrowser=False)  # don't try to open a browser
