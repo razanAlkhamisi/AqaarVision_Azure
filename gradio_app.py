@@ -1,12 +1,12 @@
 import json
 import requests
 import gradio as gr
-import os  # For environment variables
-import threading  # To run Gradio in a separate thread if needed
+import os
+from fastapi import FastAPI
+from fastapi.middleware.wsgi import WSGIMiddleware
 
 # ------------------ CONFIG ------------------
-AZURE_ENDPOINT = os.getenv("AZURE_MODEL_ENDPOINT")
-
+AZURE_ENDPOINT = os.getenv("AZURE_ENDPOINT")
 UNIQUE_VALUES_PATH = "unique_values.json"
 
 # ------------------ LOAD DROPDOWNS ------------------
@@ -65,8 +65,11 @@ with gr.Blocks() as demo:
         outputs=output_text
     )
 
-# ------------------ LAUNCH ------------------
-if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 7860))
-    demo.launch(server_name="0.0.0.0", server_port=port, inbrowser=False, share=False)
+# ------------------ FASTAPI WRAPPER ------------------
+app = FastAPI()
+app.mount("/", WSGIMiddleware(demo.server))  # Wrap Gradio as WSGI app
 
+if __name__ == "__main__":
+    import uvicorn
+    port = int(os.environ.get("PORT", 7860))
+    uvicorn.run(app, host="0.0.0.0", port=port)
