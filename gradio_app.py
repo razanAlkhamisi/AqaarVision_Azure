@@ -67,7 +67,7 @@ with gr.Blocks() as demo:
 
 # ------------------ FASTAPI WRAPPER ------------------
 app = FastAPI()
-app.mount("/", WSGIMiddleware(demo.server))  # Wrap Gradio as WSGI app
+app.mount("/", WSGIMiddleware(demo.server))  # Wrap Gradio as WSGI 
 
 if __name__ == "__main__":
     import uvicorn
