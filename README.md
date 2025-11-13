@@ -24,6 +24,30 @@ The model uses **real Saudi property transaction data**, including:
 
 ---
 
+
+## 🗂️ About the Data
+
+* **Source:** Saudi Open Data Platform
+* **Type:** Real property sales transactions
+* **Content:** Detailed property information including location, type, area, units, and price
+* **Benefit:** Provides a realistic representation of the **Saudi real estate market** to enable accurate predictions
+
+
+
+## 📅 Dataset Details
+
+The dataset used in this project consists of real estate sales transactions from different quarters of the same year:
+
+Q2 dataset → used for training the machine learning model
+
+Q3 dataset → used for final evaluation and testing
+
+This separation ensures fair performance assessment and prevents data leakage, providing a realistic evaluation of how the model performs on unseen data. 
+
+---
+
+
+
 ## ⚙️ Technologies Used
 
 * **Python** for scripting and data processing
@@ -46,27 +70,6 @@ The model uses **real Saudi property transaction data**, including:
 * **Random Forest Regressor** delivers accurate price predictions
 * **Supports real-time predictions** via Azure ML deployment
 * **Interactive Gradio interface** for user-friendly input and output
-
----
-
-## 🗂️ About the Data
-
-* **Source:** Saudi Open Data Platform
-* **Type:** Real property sales transactions
-* **Content:** Detailed property information including location, type, area, units, and price
-* **Benefit:** Provides a realistic representation of the **Saudi real estate market** to enable accurate predictions
-
-
-
-## 📅 Dataset Details
-
-The dataset used in this project consists of real estate sales transactions from different quarters of the same year:
-
-Q2 dataset → used for training the machine learning model
-
-Q3 dataset → used for final evaluation and testing
-
-This separation ensures fair performance assessment and prevents data leakage, providing a realistic evaluation of how the model performs on unseen data. 
 
 ---
 
